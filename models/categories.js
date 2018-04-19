@@ -8,10 +8,10 @@ module.exports = function (sequelize, DataTypes) {
    });
     Category.associate = function (models) {
         Category.hasMany(models.Expense, {
-            foreignKey: {
-                allowNull: false
-            },
-            onDelete: "cascade"
+            // foreignKey: {
+            //     allowNull: false
+            // },
+            // onDelete: "cascade"
         });
     };
     return Category;
