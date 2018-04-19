@@ -1,9 +1,6 @@
 module.exports = function (sequelize, DataTypes) {
-    var User = sequelize.define("user", {
-        email: {
-                 type: DataTypes.STRING,
-            allowNull: false
-        },
+    var User = sequelize.define("User", {
+      
         userName: {
             type: DataTypes.STRING,
        allowNull: false
@@ -11,7 +8,14 @@ module.exports = function (sequelize, DataTypes) {
         password: {
             type: DataTypes.STRING,
        allowNull: false
-   }
+   },
+           email: {
+                 type: DataTypes.STRING,
+       allowNull: false
+},
+        priorities: {
+            type: DataTypes
+        }
     });
 
     User.associate = function (models) {
@@ -29,6 +33,11 @@ module.exports = function (sequelize, DataTypes) {
         User.hasMany (models.Stocks, {
             onDelete: "cascade"
         });
+    User.associate = function (models) {
+        User.hasMany(models.Categories, {
+            onDelete: "cascade"
+        })
+    }
     };
     return User;
 };
