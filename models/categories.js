@@ -1,17 +1,18 @@
 module.exports = function (sequelize, DataTypes) {
-    var Categories = sequelize.define("Categorie", {
+    var Category = sequelize.define("Categorie", {
                   food: DataTypes.INTEGER,
         transportation: DataTypes.INTEGER,
                   rent: DataTypes.INTEGER,
                  other: DataTypes.INTEGER,
                leisure: DataTypes.INTEGER
    });
-    Categories.associate = function (models) {
-        Categories.belongsTo(models.User, {
+    Category.associate = function (models) {
+        Category.hasMany(models.Expense, {
             foreignKey: {
                 allowNull: false
-            }
+            },
+            onDelete: "cascade"
         });
     };
-    return Categories;
+    return Category;
 };
