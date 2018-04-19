@@ -14,5 +14,32 @@ module.exports = function(app) {
         });
     });
 
+    app.get("/api/expenses/:id", function(req, res) {
+        db.Expense.findOne({
+            where: {
+                id: req.params.id
+            },
+            include: [db.User]
+        }).then(function(dbExpense) {
+            res.json(dbExpense);
+        });
+    });
     
-}
+    app.post("/api/stocks", function(req, res) {
+        db.Post.create(req.body).then(function(dbExpense) {
+            res.json(dbExpense);
+        });
+    });
+
+    app.put("/api/stocks", function(req, res) {
+        db.Stock.update(
+            req.body,
+            {
+                where: {
+                    id: req.body.id
+                }
+            }).then(function(dbExpense) {
+                res.json(dbStock);
+            });
+    });
+};

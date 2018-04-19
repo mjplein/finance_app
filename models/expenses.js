@@ -1,16 +1,16 @@
 module.exports = function (sequelize, DataTypes) {
-    var Expenses = sequelize.define("Expense", {
+    var Expense = sequelize.define("Expense", {
         category_name: DataTypes.STRING,
          amount_spent: DataTypes.DECIMAL(10.2),
           where_spent: DataTypes.STRING,
            when_spent: DataTypes.DATEONLY
     });
-    Expenses.associate = function (models) {
-        Expenses.belongsTo(models.User, {
+    Expense.associate = function (models) {
+        Expense.belongsTo(models.Category, {
             foreignKey: {
                 allowNull: false
             }
         });
     };
-    return Expenses;
+    return Expense;
 };
