@@ -12,10 +12,23 @@ module.exports = function (sequelize, DataTypes) {
             type: DataTypes.STRING,
        allowNull: false
    }
-
     });
 
     User.associate = function (models) {
-        User.hasMany(models.Budget)
-    }
-}
+        User.hasMany(models.Budget, {
+            onDelete: "cascade"
+        });
+    };
+
+    User.associate = function(models) {
+        User.hasMany(models.Expenses, {
+            onDelete: "cascade"
+        });
+    };
+    User.associate = function (models) {
+        User.hasMany (models.Stocks, {
+            onDelete: "cascade"
+        });
+    };
+    return User;
+};
