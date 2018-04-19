@@ -1,5 +1,5 @@
 module.exports = function (sequelize, DataTypes) {
-    var Budget = sequelize.define("budget", {
+    var Budget = sequelize.define("Budget", {
            category_name: DataTypes.STRING,
           category_value: DataTypes.INTEGER,
         desired_spending: DataTypes.INTEGER
