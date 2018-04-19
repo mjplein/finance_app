@@ -7,7 +7,7 @@ module.exports = function(app) {
             query.UserId = req.query.user_id;
         }
         db.Expense.findAll({
-            where: query,
+              where: query,
             include: [db.User]
         }).then(function(dbExpense) {
             res.json(dbExpense);

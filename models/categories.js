@@ -10,9 +10,6 @@ module.exports = function (sequelize, DataTypes) {
         Category.hasMany(models.Expense, {
             onDelete: "no action"
 
-            // foreignKey: {
-            //     allowNull: true
-
         });
     };
     return Category;
