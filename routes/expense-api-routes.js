@@ -7,7 +7,7 @@ module.exports = function(app) {
             query.UserId = req.query.user_id;
         }
         db.Expense.findAll({
-            where: query,
+              where: query,
             include: [db.User]
         }).then(function(dbExpense) {
             res.json(dbExpense);
@@ -25,13 +25,13 @@ module.exports = function(app) {
         });
     });
     
-    app.post("/api/stocks", function(req, res) {
+    app.post("/api/expenses", function(req, res) {
         db.Post.create(req.body).then(function(dbExpense) {
             res.json(dbExpense);
         });
     });
 
-    app.put("/api/stocks", function(req, res) {
+    app.put("/api/expenses", function(req, res) {
         db.Stock.update(
             req.body,
             {
@@ -39,7 +39,7 @@ module.exports = function(app) {
                     id: req.body.id
                 }
             }).then(function(dbExpense) {
-                res.json(dbStock);
+                res.json(dbExpense);
             });
     });
 };
