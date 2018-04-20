@@ -4,6 +4,7 @@ module.exports = function (sequelize, DataTypes) {
           category_value: DataTypes.INTEGER,
         desired_spending: DataTypes.INTEGER
     });
+    
     Budget.associate = function (models) {
         Budget.belongsTo(models.User, {
             foreignKey: {

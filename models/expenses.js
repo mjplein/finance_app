@@ -5,6 +5,7 @@ module.exports = function (sequelize, DataTypes) {
         where_spent: DataTypes.STRING,
         when_spent: DataTypes.DATEONLY
     });
+    
     Expense.associate = function (models) {
         Expense.belongsTo(models.Category, {
             foreignKey: {
