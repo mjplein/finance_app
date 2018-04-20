@@ -13,7 +13,7 @@ module.exports = function(app) {
             where: {
                 id: req.params.id
             },
-            include: [db.Budget, db.Expense, db.Categorie, db.Stock]
+           // include: [db.Budget, db.Expense, db.Categorie, db.Stock] ----COMMENT BACK IN WHEN OTHER ROUTES WORK!!!
         }).then(function(dbUser) {
             res.json(dbUser);
         });
