@@ -29,6 +29,7 @@ module.exports = function (sequelize, DataTypes) {
             onDelete: "cascade"
         });
     };
+
     User.associate = function (models) {
         User.hasMany(models.Stocks, {
             onDelete: "cascade"
@@ -38,6 +39,8 @@ module.exports = function (sequelize, DataTypes) {
         User.hasMany(models.Category, {
             onDelete: "cascade"
         });
+
     };
+    
     return User;
 };
