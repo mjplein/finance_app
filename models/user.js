@@ -14,7 +14,7 @@ module.exports = function (sequelize, DataTypes) {
             allowNull: false
         },
         priorities: {
-            type: DataTypes
+            type: DataTypes.STRING
         }
     });
 
