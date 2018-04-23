@@ -1,10 +1,10 @@
 module.exports = function (sequelize, DataTypes) {
     var User = sequelize.define("User", {
-        id: {     type: DataTypes.INTEGER,
-            allowNull: false,
-            autoIncrement: true,
-            primaryKey: true,
-        },
+        // id: {     type: DataTypes.INTEGER,
+        //     allowNull: false,
+        //     autoIncrement: true,
+        //     primaryKey: true,
+        // },
         userName: {
             type: DataTypes.STRING,
             allowNull: false
@@ -24,28 +24,20 @@ module.exports = function (sequelize, DataTypes) {
 
     User.associate = function (models) {
         User.hasMany(models.Budget, {
-            onDelete: "cascade"
-        });
-    };
-
-    User.associate = function (models) {
-        User.hasMany(models.Expenses, {
-            onDelete: "cascade"
-        });
-    };
-
-    User.associate = function (models) {
-        User.hasMany(models.Stock, {
-            
             onDelete: "no action"
-        });
-    }
-    // User.associate = function (models) {
-    //     User.hasMany(models.Category, {
-    //         onDelete: "cascade"
-    //     });
+        }),
+        User.hasMany(models.Expense, {
+            onDelete: "no action"
+        }),
+        User.hasMany(models.Stock, {
+            onDelete: "no action"
+        }),
+        User.hasMany(models.Category, {
+            onDelete: "cascade"
+        })
 
-    // };
+    };
+
     
     return User;
 };

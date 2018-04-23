@@ -26,13 +26,13 @@ module.exports = function(app) {
     });
     
     app.post("/api/expenses", function(req, res) {
-        db.Post.create(req.body).then(function(dbExpense) {
+        db.Expense.create(req.body).then(function(dbExpense) {
             res.json(dbExpense);
         });
     });
 
     app.put("/api/expenses", function(req, res) {
-        db.Stock.update(
+        db.Expense.update(
             req.body,
             {
                 where: {

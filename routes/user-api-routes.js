@@ -16,6 +16,8 @@ module.exports = function(app) {
            include: [db.Budget, db.Expense, db.Category, db.Stock]
         }).then(function(dbUser) {
             res.json(dbUser);
+        }).catch(function(error) {
+            console.log(error)
         });
     });
     
