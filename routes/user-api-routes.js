@@ -2,8 +2,8 @@ var db = require("../models");
 
 module.exports = function(app) {
     app.get("/api/users", function (req, res) {
-        db.user.findAll({
-            include: [db.Budget, db.Expense, db.Categorie, db.Stock]
+        db.User.findAll({
+            include: [db.Budget, db.Expense, db.Category, db.Stock]
         }).then(function(dbUser) {
             res.json(dbUser);
         });
@@ -13,16 +13,18 @@ module.exports = function(app) {
             where: {
                 id: req.params.id
             },
-           // include: [db.Budget, db.Expense, db.Categorie, db.Stock] ----COMMENT BACK IN WHEN OTHER ROUTES WORK!!!
+           include: [db.Budget, db.Expense, db.Category, db.Stock]
         }).then(function(dbUser) {
             res.json(dbUser);
         });
     });
+    
     app.post("/api/users", function (req, res) {
         db.User.create(req.body).then(function(dbUser){
             res.json(dbUser);
         });
     });
+
     app.delete("/api/users/:id", function(req, res) {
         db.User.destroy({
             where: {

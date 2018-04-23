@@ -1,5 +1,10 @@
 module.exports = function (sequelize, DataTypes) {
-    var Stocks = sequelize.define("Stock", {
+    var Stock = sequelize.define("Stock", {
+        id: {     type: DataTypes.INTEGER,
+                  allowNull: false,
+                  autoIncrement: true,
+                  primaryKey: true,
+        },
            stock_name: DataTypes.STRING,
         category_name: DataTypes.STRING,
          stocks_value: DataTypes.INTEGER,
@@ -7,12 +12,10 @@ module.exports = function (sequelize, DataTypes) {
           risen_value: DataTypes.INTEGER,
          fallen_value: DataTypes.INTEGER
     });
-    Stocks.associate = function (models) {
-        Stocks.belongsTo(models.User, {
-            foreignKey: {
-                allowNull: false
-            }
+    Stock.associate = function (models) {
+        Stock.belongsTo(models.User, {
+           
         });
     };
-    return Stocks;
+    return Stock;
 };
