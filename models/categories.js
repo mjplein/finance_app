@@ -1,16 +1,5 @@
 module.exports = function (sequelize, DataTypes) {
-    var Category = sequelize.define("Category", {
-        // id: {        type: DataTypes.INTEGER,
-        //         allowNull: false,
-        //     autoIncrement: true,
-        //        primaryKey: true,
-        // },
-//                   food: DataTypes.INTEGER,
-//         transportation: DataTypes.INTEGER,
-//                   rent: DataTypes.INTEGER,
-//                  other: DataTypes.INTEGER,
-//                leisure: DataTypes.INTEGER, 
-//    
+    var Category = sequelize.define("Category", {   
 category_name: DataTypes.STRING
 },
    {tableName: "Categories"}
