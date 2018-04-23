@@ -19,7 +19,7 @@ module.exports = function(app) {
             where: {
                 id: req.params.id
             },
-            include: [db.Stock]
+            include: [db.User]
         }).then(function(dbStock) {
             res.json(dbStock);
         });

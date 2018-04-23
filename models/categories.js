@@ -1,5 +1,10 @@
 module.exports = function (sequelize, DataTypes) {
     var Category = sequelize.define("Category", {
+        id: {     type: DataTypes.INTEGER,
+            allowNull: false,
+            autoIncrement: true,
+            primaryKey: true,
+        },
                   food: DataTypes.INTEGER,
         transportation: DataTypes.INTEGER,
                   rent: DataTypes.INTEGER,
