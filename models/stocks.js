@@ -1,10 +1,5 @@
 module.exports = function (sequelize, DataTypes) {
     var Stock = sequelize.define("Stock", {
-        // id: {          type: DataTypes.INTEGER,
-        //           allowNull: false,
-        //       autoIncrement: true,
-        //          primaryKey: true,
-        // },
            stock_name: DataTypes.STRING,
         category_name: DataTypes.STRING,
          stocks_value: DataTypes.INTEGER,
