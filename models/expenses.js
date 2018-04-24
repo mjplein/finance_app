@@ -1,8 +1,8 @@
 module.exports = function (sequelize, DataTypes) {
     var Expense = sequelize.define("Expense", {
-         amount_spent: DataTypes.DECIMAL(10.2),
-          where_spent: DataTypes.STRING,
-           when_spent: DataTypes.DATEONLY
+               amount: DataTypes.DECIMAL(10.2),
+          description: DataTypes.STRING,
+          expenseType: DataTypes.BOOLEAN
     });
     
     Expense.associate = function (models) {

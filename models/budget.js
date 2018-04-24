@@ -1,6 +1,6 @@
 module.exports = function (sequelize, DataTypes) {
     var Budget = sequelize.define("Budget", {
-        desired_spending: DataTypes.INTEGER
+        balance: DataTypes.INTEGER
     });
     
     Budget.associate = function (models) {
