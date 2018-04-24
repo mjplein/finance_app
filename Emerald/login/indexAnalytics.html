@@ -57,6 +57,7 @@
 						<span>Profile</span>
 					</a>
 				</li>
+				
 				<li>
 					<a href="indexBudget.html">
 						<span>
@@ -82,35 +83,44 @@
 			Analytics
 		</div>
 
-	 <div id="container" style="width: 100%; height: 100%"></div>
-	  <script> 
-	anychart.onDocumentReady(function() {
+		<style>html, body, #container {
+				width: 100%;
+				height: 93%;
+				margin: 0;
+				padding: 0;
+			}</style>
+			 </head>
+			 <body>
+			  <div id="container"></div>
+			  <script src="https://cdn.anychart.com/releases/8.2.1/js/anychart-base.min.js"></script>
+			  <script src="https://cdn.anychart.com/releases/8.2.1/js/anychart-exports.min.js"></script>
+			  <script src="https://cdn.anychart.com/releases/8.2.1/js/anychart-ui.min.js"></script>
+			  <script type="text/javascript">anychart.onDocumentReady(function () {
+			
+				// create data
+				var data = [
+				  {x: "Income", value: 253000},
+				  {x: "Room and Board", value: 95000},
+				  {x: "Leisure", value: 100000},
+				  {x: "Food", value: 20000},
+				  {x: "Transportation", value: 5000 }
 
-// set the data
-var data = [
-	{x: "Income", value: 25200},
-	{x: "Expenses", value: 22200},
-];
-
-// create the chart
-var chart = anychart.pie();
-
-// set the chart title
-chart.title("Example of User's Income vs Expenses for a Year");
-
-// add the data
-chart.data(data);
-
-// display the chart in the container
-chart.container('container');
-chart.draw();
-// set legend position
-chart.legend().position("right");
-// set items layout
-chart.legend().itemsLayout("vertical");
-// sort elements
-chart.sort("desc");
-}); </script>
+				 
+				];
+			
+				// create a 3d pie chart and set the data
+				var chart = anychart.pie3d(data);
+			
+				// set the chart title
+				  chart.title("Monthly Spending");
+			
+				// set the container id
+				chart.container("container");
+			
+				// initiate drawing the chart
+				chart.draw();
+			});</script>
+		
 </body>
 
 </html>
