@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>GIPHY Image Search</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7"
+        crossorigin="anonymous">
+
+</head>
+
+<div class="container">
+    <div class="border" class="rounded-top">
+        <div class="row1">
+            <div id="buttons-view">
+            </div>
+
+        </div>
+
+        <div class="row2">
+            <hr>
+            <div class="col-xs-6 col-sm-8 col-md-9 col-lg-9" style="border-right:1px solid white;">
+
+                <div class="row" id="results-view">
+
+                </div>
+
+            </div>
+
+            <div class="col-xs-6 col-sm-4 col-md-3 col-lg-3" id="right-pane">
+                <div class="form-group">
+                    <label for="add-image-input">
+                        <b>LETS DO THIS</b>
+                    </label>
+                    <!-- <input type="text" class="form-control" id="add-image-input"> -->
+                    <button type="button" class="btn btn-sm" id="add-image-button">Submit</button>
+                </div>
+                <br>
+            </div>
+        </div>
+    </div>
+</div>
+
+<body>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript">
+
+        $("#add-image-button").on("click", function (event) {
+            var userInfo = {
+                userName: "ffred",
+                password: "Pwog",
+                email: "emul@email.com",
+            };
+            createUser(userInfo);
+            deleteUser(1);
+
+            //-------------------------Expenses------------------
+            var newTrans = {
+                expenseType: "food",
+                description: "food-stuffs",
+                amount: 30
+            };
+            createExpense(newTrans);
+
+
+            var newBudget = {
+                balance: 50888
+            }
+            createBudget(newBudget);
+        });
+//--------------------------------------------------------User-----------------------
+        function createUser(userData) {
+
+            $.post("api/users", userData, function (result) {
+                console.log("are we here?");
+                console.log(result);
+            });
+        };
+
+        function deleteUser(userId) {
+            
+            $.ajax({
+                method: "DELETE",
+                url: "/api/users/" + userId
+            })
+            console.log("MAYBE STUFF GOT DELETED");
+        };
+        
+        // ----------------------------------------------------------Expenses--------
+        function createExpense(expense) {
+            $.post("/api/expenses", expense)
+            console.log(expense);
+        };
+        //----------------------------------------------------Budget
+        function createBudget (budget) {
+            $.post("/api/budget", budget)
+            console.log(budget);
+        };
+        
+
+    </script>
+
+</body>
