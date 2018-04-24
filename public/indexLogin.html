@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Emerald</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/main.css">
+  <href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<style>
+  
+</style>
+<body>
+   
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+
+ <h1><center>Emerald Corporation</center></h1>
+  <form name="loginForm" method="post" action="index.html">
+      <table width="20%" align="center" vertical-align:"middle" >
+
+      <tr>
+        <td colspan=2>
+          <center>
+            <font size=4>
+              
+            </font>
+          </center>
+        </td>
+      </tr>
+
+      <tr>
+        <td>Username:</td>
+        <td>
+          <input type="text" size=25 name="userid">
+        </td>
+      </tr>
+
+      <tr>
+        <td>Password:</td>
+        <td>
+          <input type="Password" size=25 name="pwd">
+        </td>
+      </tr>
+      <td><input type="submit" onclick="return check(this.form)" value="Login" vertical-align="middle" > </td>
+      
+
+    </table>
+  </form>
+
+
+
+
+  <script>
+    function openSlideMenu() {
+      document.getElementById('side-menu').style.width = '250px';
+      document.getElementById('main').style.marginLeft = '250px';
+    }
+
+    function closeSlideMenu() {
+      document.getElementById('side-menu').style.width = '0';
+      document.getElementById('main').style.marginLeft = '0';
+    }
+
+    function check(form) {
+
+      if (form.userid.value == "batman" && form.pwd.value == "batman") {
+        return true;
+        window.location.href = "index.html";
+     
+      }
+      else {
+        alert("Error Password or Username")
+        return false;
+      }
+    }
+  </script>
+
+</body>
+
+</html>
