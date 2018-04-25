@@ -7,11 +7,12 @@ module.exports = function (sequelize, DataTypes) {
     
     Expense.associate = function (models) {
         Expense.belongsTo(models.User, { 
-            allowNull: false
-        }),
-        Expense.belongsTo(models.Category, {
-            allowNull: false
-    })
+           foreignKey: {
+            allowNull: false}
+        });
+    //     Expense.belongsTo(models.Category, {  ------When we integrate categories, this would be uncommented, not just "dead code"
+    //         allowNull: false
+    // })
     };
 
     return Expense;
